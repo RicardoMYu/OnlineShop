@@ -1,6 +1,7 @@
 package com.ischoolbar.programmer.service.wx.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,6 +31,12 @@ public class wxUserServiceImpl implements wxUserService {
 	public List addid() {
 		// TODO Auto-generated method stub
 		return wxUserDuo.addid();
+	}
+
+	@Override
+	public int addWxCart(Map m) {
+		// TODO Auto-generated method stub
+		return wxUserDuo.addWxCart(m);
 	}
 
 
