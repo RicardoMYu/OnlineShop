@@ -46,6 +46,12 @@ public class wxUserServiceImpl implements wxUserService {
 		return wxUserDuo.cartDetail(openid);
 	}
 
+	@Override
+	public int addWxOrder(Map m) {
+		// TODO Auto-generated method stub
+		return wxUserDuo.addWxOrder(m);
+	}
+
 
 	
 }

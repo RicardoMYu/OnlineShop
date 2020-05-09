@@ -19,5 +19,6 @@ public interface wxUserService {
 	public Integer findopenid(String openid);
 	public List addid();
 	public List<wxCartDetail> cartDetail(String openid);
+	public int addWxOrder(Map m);
 
 }

@@ -98,4 +98,28 @@ public class Wxdetail {
         List<wxCartDetail> wx = wxUserService.cartDetail(openid);
         return wx;
     }
+	@RequestMapping(value="/wxOrder")
+	@ResponseBody
+    public int wxOrder(@RequestParam("openid") String openid,
+    		@RequestParam("all") String address,
+    		@RequestParam("userName") String userName,
+    		@RequestParam("telNumber") Long telNumber,
+    		HttpServletResponse response) throws ServletException, IOException{
+		System.out.println("=====订单详情======");
+        response.setContentType("text/html;charset=utf-8");          
+         //设置响应头允许ajax跨域访问   
+        response.setHeader("Access-Control-Allow-Origin", "*");  
+         //星号表示所有的异域请求都可以接受，   
+        response.setHeader("Access-Control-Allow-Methods", "GET,POST");
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String format = df.format(new Date());
+        Map m = new HashMap();
+        m.put("openid", openid);
+        m.put("address", address);
+        m.put("userName", userName);
+        m.put("telNumber", telNumber);
+        m.put("createTime", format);
+        int i=wxUserService.addWxOrder(m);
+        return i;
+    }
 }
