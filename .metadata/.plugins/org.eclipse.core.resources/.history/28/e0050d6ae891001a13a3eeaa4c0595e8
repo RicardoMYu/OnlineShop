@@ -52,12 +52,6 @@ public class wxUserServiceImpl implements wxUserService {
 		return wxUserDuo.addWxOrder(m);
 	}
 
-	@Override
-	public int wxModify(Map m) {
-		// TODO Auto-generated method stub
-		return wxUserDuo.wxModify(m);
-	}
-
 
 	
 }

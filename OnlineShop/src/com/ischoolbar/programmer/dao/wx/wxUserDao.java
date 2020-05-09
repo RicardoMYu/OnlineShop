@@ -18,4 +18,5 @@ public interface wxUserDao {
 	public int addWxCart(Map m);
 	public List<wxCartDetail> cartDetail(String openid);
 	public int addWxOrder(Map m);
+	public int wxModify(Map m);
 }

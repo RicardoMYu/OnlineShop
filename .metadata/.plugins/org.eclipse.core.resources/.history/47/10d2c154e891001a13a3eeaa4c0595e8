@@ -122,9 +122,9 @@ public class Wxdetail {
         int i=wxUserService.addWxOrder(m);
         return i;
     }
-	@RequestMapping(value="/wxModify")
+	@RequestMapping(value="/wxxxxx")
 	@ResponseBody
-    public int wxModify(@RequestParam("id") int id,
+    public List<wxCartDetail> wxxxxx(@RequestParam("id") int id,
     		@RequestParam("openid") String openid,
     		@RequestParam("num") int num,
     		@RequestParam("money") double money,
@@ -135,12 +135,8 @@ public class Wxdetail {
         response.setHeader("Access-Control-Allow-Origin", "*");  
         /* 星号表示所有的异域请求都可以接受， */  
         response.setHeader("Access-Control-Allow-Methods", "GET,POST");
-        Map m = new HashMap();
-        m.put("id", id);
-        m.put("openid", openid);
-        m.put("num", num);
-        m.put("money", money);
-        int i = wxUserService.wxModify(m);
-        return i;
+        
+        List<wxCartDetail> wx = wxUserService.cartDetail(openid);
+        return wx;
     }
 }

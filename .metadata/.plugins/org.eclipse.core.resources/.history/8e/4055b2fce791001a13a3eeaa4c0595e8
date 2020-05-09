@@ -122,25 +122,4 @@ public class Wxdetail {
         int i=wxUserService.addWxOrder(m);
         return i;
     }
-	@RequestMapping(value="/wxModify")
-	@ResponseBody
-    public int wxModify(@RequestParam("id") int id,
-    		@RequestParam("openid") String openid,
-    		@RequestParam("num") int num,
-    		@RequestParam("money") double money,
-    		HttpServletResponse response) throws ServletException, IOException{
-		System.out.println("=====Giao======");
-        response.setContentType("text/html;charset=utf-8");          
-        /* 设置响应头允许ajax跨域访问 */  
-        response.setHeader("Access-Control-Allow-Origin", "*");  
-        /* 星号表示所有的异域请求都可以接受， */  
-        response.setHeader("Access-Control-Allow-Methods", "GET,POST");
-        Map m = new HashMap();
-        m.put("id", id);
-        m.put("openid", openid);
-        m.put("num", num);
-        m.put("money", money);
-        int i = wxUserService.wxModify(m);
-        return i;
-    }
 }

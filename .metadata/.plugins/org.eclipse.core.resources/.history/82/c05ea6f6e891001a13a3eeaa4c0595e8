@@ -21,7 +21,4 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="addWxOrder" parameterType="Map" >
 	insert into wxorder(openId,address,userName,telNumber,createTime) VALUES(#{openId},#{address},#{userName},#{telNumber},#{createTime})
 	</insert>
-	<update id="wxModify" parameterType="Map">
-		update wxcart set num = #{num},money = #{money} where productId = #{id} and openId=#{openid}
-	</update>
 </mapper>
