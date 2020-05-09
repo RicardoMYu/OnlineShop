@@ -15,4 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="addWxCart" parameterType="Map" >
 	insert into wxcart(openId,productId,name,imageUrl,price,num,money,createTime) VALUES(#{openId},#{productId},#{name},#{imageUrl},#{price},#{num},#{money},#{createTime})
 	</insert>
+	<select id="cartDetail" parameterType="String" resultType="com.ischoolbar.programmer.entity.wx.wxCartDetail">
+	select * from wxcart where openid=#{0}
+	</select>
 </mapper>

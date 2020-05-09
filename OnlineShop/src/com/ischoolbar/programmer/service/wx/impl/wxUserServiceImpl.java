@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ischoolbar.programmer.dao.wx.wxUserDao;
+import com.ischoolbar.programmer.entity.wx.wxCartDetail;
 import com.ischoolbar.programmer.entity.wx.wxUser;
 import com.ischoolbar.programmer.service.wx.wxUserService;
 @Service
@@ -37,6 +38,12 @@ public class wxUserServiceImpl implements wxUserService {
 	public int addWxCart(Map m) {
 		// TODO Auto-generated method stub
 		return wxUserDuo.addWxCart(m);
+	}
+
+	@Override
+	public wxCartDetail cartDetail(String openid) {
+		
+		return wxUserDuo.cartDetail(openid);
 	}
 
 
