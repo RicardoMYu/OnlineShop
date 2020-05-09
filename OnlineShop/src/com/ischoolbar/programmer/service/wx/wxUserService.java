@@ -18,6 +18,6 @@ public interface wxUserService {
 	public int addWxCart(Map m);
 	public Integer findopenid(String openid);
 	public List addid();
-	public wxCartDetail cartDetail(String openid);
+	public List<wxCartDetail> cartDetail(String openid);
 
 }

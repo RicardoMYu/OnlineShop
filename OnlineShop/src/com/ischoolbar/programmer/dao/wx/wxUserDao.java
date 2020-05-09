@@ -16,6 +16,6 @@ public interface wxUserDao {
 	public Integer findopenid(String openid);
 	public List addid();
 	public int addWxCart(Map m);
-	public wxCartDetail cartDetail(String openid);
+	public List<wxCartDetail> cartDetail(String openid);
 	
 }

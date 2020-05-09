@@ -87,7 +87,7 @@ public class Wxdetail {
     }
 	@RequestMapping(value="/cartDetail")
 	@ResponseBody
-    public wxCartDetail cartDetail(@RequestParam("openid") String openid,HttpServletResponse response) throws ServletException, IOException{
+    public List<wxCartDetail> cartDetail(@RequestParam("openid") String openid,HttpServletResponse response) throws ServletException, IOException{
 		System.out.println("=====购物详情======");
         response.setContentType("text/html;charset=utf-8");          
         /* 设置响应头允许ajax跨域访问 */  
@@ -95,7 +95,7 @@ public class Wxdetail {
         /* 星号表示所有的异域请求都可以接受， */  
         response.setHeader("Access-Control-Allow-Methods", "GET,POST");
         
-        wxCartDetail wx= wxUserService.cartDetail(openid);
+        List<wxCartDetail> wx = wxUserService.cartDetail(openid);
         return wx;
     }
 }

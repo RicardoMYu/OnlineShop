@@ -41,7 +41,7 @@ public class wxUserServiceImpl implements wxUserService {
 	}
 
 	@Override
-	public wxCartDetail cartDetail(String openid) {
+	public List<wxCartDetail> cartDetail(String openid) {
 		
 		return wxUserDuo.cartDetail(openid);
 	}
