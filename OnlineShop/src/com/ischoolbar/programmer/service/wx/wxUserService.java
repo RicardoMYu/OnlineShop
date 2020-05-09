@@ -21,5 +21,6 @@ public interface wxUserService {
 	public List<wxCartDetail> cartDetail(String openid);
 	public int addWxOrder(Map m);
 	public int wxModify(Map m);
+	public String selAdd();
 
 }

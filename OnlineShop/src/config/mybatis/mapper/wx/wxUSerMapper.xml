@@ -16,12 +16,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	insert into wxcart(openId,productId,name,imageUrl,price,num,money,createTime) VALUES(#{openId},#{productId},#{name},#{imageUrl},#{price},#{num},#{money},#{createTime})
 	</insert>
 	<select id="cartDetail" parameterType="String" resultType="com.ischoolbar.programmer.entity.wx.wxCartDetail">
-	select * from wxcart where openid=#{0}
+	select * from wxcart where openid=#{0} order by id desc
 	</select>
 	<insert id="addWxOrder" parameterType="Map" >
-	insert into wxorder(openId,address,userName,telNumber,createTime) VALUES(#{openId},#{address},#{userName},#{telNumber},#{createTime})
+	insert into wxorder(openId,address,userName,telNumber,createTime) VALUES(#{openid},#{address},#{userName},#{telNumber},#{createTime})
 	</insert>
+	<select id="selAdd" parameterType="String" resultType="String">
+	select openid from wxorder 
+	</select>
 	<update id="wxModify" parameterType="Map">
-		update wxcart set num = #{num},money = #{money} where productId = #{id} and openId=#{openid}
+		update wxcart set num = #{num},money = #{money} where Id = #{id} and openId=#{openid}
 	</update>
 </mapper>

@@ -58,6 +58,12 @@ public class wxUserServiceImpl implements wxUserService {
 		return wxUserDuo.wxModify(m);
 	}
 
+	@Override
+	public String selAdd() {
+		// TODO Auto-generated method stub
+		return wxUserDuo.selAdd();
+	}
+
 
 	
 }

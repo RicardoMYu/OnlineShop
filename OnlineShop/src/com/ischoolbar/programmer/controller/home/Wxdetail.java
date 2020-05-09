@@ -101,9 +101,9 @@ public class Wxdetail {
 	@RequestMapping(value="/wxOrder")
 	@ResponseBody
     public int wxOrder(@RequestParam("openid") String openid,
-    		@RequestParam("all") String address,
+    		@RequestParam("all") String all,
     		@RequestParam("userName") String userName,
-    		@RequestParam("telNumber") Long telNumber,
+    		@RequestParam("telNumber") String telNumber,
     		HttpServletResponse response) throws ServletException, IOException{
 		System.out.println("=====订单详情======");
         response.setContentType("text/html;charset=utf-8");          
@@ -111,15 +111,22 @@ public class Wxdetail {
         response.setHeader("Access-Control-Allow-Origin", "*");  
          //星号表示所有的异域请求都可以接受，   
         response.setHeader("Access-Control-Allow-Methods", "GET,POST");
+        String add = wxUserService.selAdd();
+        System.out.println(add);
+        if(openid.equals(add)) {
+        	return 0;
+        }
+        System.out.println("userName"+userName+"==telNumber"+telNumber);
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String format = df.format(new Date());
         Map m = new HashMap();
         m.put("openid", openid);
-        m.put("address", address);
+        m.put("address", all);
         m.put("userName", userName);
         m.put("telNumber", telNumber);
         m.put("createTime", format);
         int i=wxUserService.addWxOrder(m);
+        System.out.println(i);
         return i;
     }
 	@RequestMapping(value="/wxModify")
@@ -135,6 +142,7 @@ public class Wxdetail {
         response.setHeader("Access-Control-Allow-Origin", "*");  
         /* 星号表示所有的异域请求都可以接受， */  
         response.setHeader("Access-Control-Allow-Methods", "GET,POST");
+        System.out.println(id+"====="+num+"========="+money);
         Map m = new HashMap();
         m.put("id", id);
         m.put("openid", openid);
